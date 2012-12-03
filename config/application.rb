@@ -65,5 +65,6 @@ module IbhartiRadio
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     #config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
+    config.assets.initialize_on_precompile = false
   end
 end
