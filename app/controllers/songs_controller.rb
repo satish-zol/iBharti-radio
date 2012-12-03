@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+
+
   # GET /songs
   # GET /songs.json
   def index
@@ -23,15 +25,19 @@ class SongsController < ApplicationController
 
   # GET /songs/new
   # GET /songs/new.json
+  respond_to :json, :xml
   def new
+    
     @song = Song.new
     @categories = Category.all
     @languages = Language.all
     @tags = Tag.all
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @song }
-    end
+    #response = {:song => @song, :categories => @categories, :languages => @languages, :tags => @tags}
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    #   format.json { render json: response }
+    # end
+    #respond_with(response)
   end
 
   # GET /songs/1/edit

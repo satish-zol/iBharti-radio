@@ -1,4 +1,6 @@
 IbhartiRadio::Application.routes.draw do
+  
+
   resources :song_uploads
 
   resources :songs
@@ -9,7 +11,9 @@ IbhartiRadio::Application.routes.draw do
 
   resources :categories
 
-  root :to => "categories#index" 
+  match 'index' => 'main#index'
+
+  root :to => "main#index" 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
