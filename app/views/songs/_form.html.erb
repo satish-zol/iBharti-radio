@@ -1,0 +1,50 @@
+<%= form_for @song, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :category_id, :class => 'control-label' %>
+    <div class="controls">
+      <% if @categories.present? %>
+        <%= f.collection_select :category_id, @categories, :id, :name, {:include_blank => "Select Category"}, :class => 'number_field' %>
+      <% else %>
+        <input class="text_field", placeholder="No Categories found!", readonly/>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :language_id, :class => 'control-label' %>
+    <div class="controls">
+      <% if @languages.present? %>
+        <%= f.collection_select :language_id, @languages, :id, :name, {:include_blank => "Select Languages"}, :class => 'number_field' %>
+      <% else %>
+        <input class="text_field", placeholder="No Languages found!", readonly/>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tag_id, :class => 'control-label' %>
+    <div class="controls">
+      <% if @tags.present? %>
+        <%= f.collection_select :tag_id, @tags, :id, :name, {:include_blank => "Select Tags"}, :class => 'number_field' %>
+      <% else %>
+        <input class="text_field", placeholder="No Tags found!", readonly/>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class='control-label'>Upload Song</label>
+    <div class="controls">
+      <%= file_field_tag :file, :class => 'file_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                songs_path, :class => 'btn' %>
+  </div>
+<% end %>
