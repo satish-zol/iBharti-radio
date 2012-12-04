@@ -13,3 +13,7 @@ child @tags do
 	attributes :id, :name
 end
 
+child @song_upload do
+	attributes :id, :file
+end
+
