@@ -1,5 +1,5 @@
 object @song 
-	attributes :id, :name, :file
+	attributes :id, :name
 
 child @categories do
 	attributes :id, :name
@@ -14,6 +14,6 @@ child @tags do
 end
 
 child @song_upload do
-	attributes :id, :file
+	attributes :file
 end
 

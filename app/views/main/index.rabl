@@ -1,4 +1,4 @@
-object @songs
+collection :@songs
 	attributes :id, :name
 	node(:category_name) {|c| c.category.name }
 	node(:language_name) {|l| l.language.name }
