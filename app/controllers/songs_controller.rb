@@ -27,11 +27,11 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   respond_to :json, :xml
   def new
-    
     @song = Song.new
     @categories = Category.all
     @languages = Language.all
     @tags = Tag.all
+    @song_upload = SongUpload.new
     #response = {:song => @song, :categories => @categories, :languages => @languages, :tags => @tags}
     # respond_to do |format|
     #   format.html # new.html.erb
