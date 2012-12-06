@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @songs = Song.order 'id'
 
     respond_to do |format|
       format.html # index.html.erb
