@@ -51,11 +51,12 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.create(params[:song])
-    @song_upload = SongUpload.create(:song_id => @song.id, :file => params[:file])
     
+      @song = Song.create(params[:song])
+      
+      thread = Thread.new { @song_upload = SongUpload.create(:song_id => @song.id, :file => params[:file])   }
     respond_to do |format|
-      if @song && @song_upload
+      if 
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render json: @song, status: :created, location: @song }
       else
@@ -63,16 +64,17 @@ class SongsController < ApplicationController
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
     end
+ 
   end
 
   # PUT /songs/1
   # PUT /songs/1.json
   def update
-    debugger
+    
     @song = Song.find(params[:id])
-        
+    thread = Thread.new{@song.update_attributes(params[:song]) && @song.song_upload.update_attributes(:file => params[:file])}     
     respond_to do |format|
-      if @song.update_attributes(params[:song]) && @song.song_upload.update_attributes(:file => params[:file])
+      if thread
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
         format.json { head :no_content }
       else

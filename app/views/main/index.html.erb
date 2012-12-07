@@ -54,7 +54,7 @@ $(document).ready(function() {
              controls : 'controls'  
         });  
         var url = $(this).attr('href');  
-        $('<source type="audio/mpeg">').attr('src', url).appendTo(audio);  
+        $('<source type="audio/mpeg" title="something">').attr('src', url).appendTo(audio);  
         audioSection.html(audio);  
         return false;  
     });  
