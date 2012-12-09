@@ -28,9 +28,10 @@ class SongsController < ApplicationController
   respond_to :json, :xml
   def new
     @song = Song.new
-    @categories = Category.all
-    @languages = Language.all
-    @tags = Tag.all
+    @categories = Category.order 'name'
+    @languages = Language.order 'name'
+    @tags = Tag.order 'name'
+    @cities = City.order 'name'
     @song_upload = SongUpload.new
     #response = {:song => @song, :categories => @categories, :languages => @languages, :tags => @tags}
     # respond_to do |format|
@@ -43,9 +44,10 @@ class SongsController < ApplicationController
   # GET /songs/1/edit
   def edit
     @song = Song.find(params[:id])
-    @categories = Category.all
-    @languages = Language.all
-    @tags = Tag.all
+    @categories = Category.order 'name'
+    @languages = Language.order 'name'
+    @tags = Tag.order 'name'
+    @cities = City.order 'name'
   end
 
   # POST /songs

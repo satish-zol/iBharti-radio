@@ -1,6 +1,8 @@
 IbhartiRadio::Application.routes.draw do
   
 
+  resources :cities
+
   resources :song_uploads
 
   resources :songs

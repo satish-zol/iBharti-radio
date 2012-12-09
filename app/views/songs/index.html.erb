@@ -13,7 +13,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:category_id) %></th>
       <th><%= model_class.human_attribute_name(:language_id) %></th>
@@ -21,7 +20,7 @@
       <th><%= model_class.human_attribute_name(:file) %></th>
       <th><%= model_class.human_attribute_name(:listen) %></th>
       <th><%= model_class.human_attribute_name(:download) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -30,7 +29,6 @@
     <% @songs.each do |song| %>
       <tr>
         <% if song.song_upload.present? %>
-        <td><%= link_to song.id, song_path(song) %></td>
         <td><%= song.name %></td>
         <td><%= song.category.name %></td>
         <td><%= song.language.name %></td>
@@ -38,7 +36,7 @@
         <td><%= File.basename(song.song_upload.file.path) %></td>
         <td><%= link_to "Audio", song.song_upload.file.url, :class => "html5" %></td> 
         <td><%= link_to "Download", song.song_upload.file.url %></td>  
-        <td><%=l song.created_at.to_date %></td>
+        <td><%= song.city.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_song_path(song), :class => 'btn btn-mini' %>

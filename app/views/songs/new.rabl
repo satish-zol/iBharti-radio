@@ -16,6 +16,10 @@ child :@tags do
 	attributes :id, :name
 end
 
+child :@cities do
+	attributes :id, :name
+end
+
 child :@song_upload do
 	attributes :file
 end 
