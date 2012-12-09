@@ -26,8 +26,10 @@
     </tr>
   </thead>
   <tbody>
+  <% if @songs.present? %>
     <% @songs.each do |song| %>
       <tr>
+        <% if song.song_upload.present? %>
         <td><%= link_to song.id, song_path(song) %></td>
         <td><%= song.name %></td>
         <td><%= song.category.name %></td>
@@ -46,8 +48,14 @@
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
+        <% end %>
       </tr>
     <% end %>
+  <% else %>
+    <tr>
+      <td>No songs uploaded! Please create new songs</td>
+    </tr>
+  <% end %>  
   </tbody>
 </table>
 

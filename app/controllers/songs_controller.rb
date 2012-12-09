@@ -56,7 +56,7 @@ class SongsController < ApplicationController
       
       thread = Thread.new { @song_upload = SongUpload.create(:song_id => @song.id, :file => params[:file])   }
     respond_to do |format|
-      if 
+      if @song && thread
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render json: @song, status: :created, location: @song }
       else
