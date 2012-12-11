@@ -1,52 +1,21 @@
 <%- model_class = Song -%>
 <div class="page-header">
-  <h1> All <%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <!--h1> All <%#=t '.title', :default => model_class.model_name.human.pluralize %></h1-->
+</div>
+
+
+<audio id="audio" preload="auto" tabindex="0" controls="" >
+    <source src="<%= @songs[0].song_upload.file.url %>">
+    Your Fallback goes here
+</audio>
+
+<div class="playlistControl">
+  <%= render :partial => "playlist", :locals => {:songs => @songs} %>
 </div>
 
  
-<section id="sidebar">  
-    <h2>Listen Audio</h2>  
-    <section id="audio">  
-        No song is currently playing.  
-    </section>  
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:category_id) %></th>
-      <th><%= model_class.human_attribute_name(:language_id) %></th>
-      <th><%= model_class.human_attribute_name(:tag_id) %></th>
-      <th><%= model_class.human_attribute_name(:file) %></th>
-      <th><%= model_class.human_attribute_name(:listen) %></th>
-      <th><%= model_class.human_attribute_name(:download) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%#=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @songs.present? %>
-    <% @songs.each do |song| %>
-      <tr>
-        <% if song.song_upload.present? %>
-        <td><%= song.name %></td>
-        <td><%= song.category.name %></td>
-        <td><%= song.language.name %></td>
-        <td><%= song.tag.name %></td>
-        <td><%= File.basename(song.song_upload.file.path) %></td>
-        <td><%= link_to "Audio", song.song_upload.file.url, :class => "html5" %></td> 
-        <td><%= link_to "Download", song.song_upload.file.url %></td>  
-        <td><%= song.city.name %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    <% else %>
-    <tr>
-      <td>No songs uploaded!</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+
 
 <%#= link_to t('.new', :default => t("helpers.links.new")),
             new_song_path,
@@ -54,7 +23,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {  
-    var audioSection = $('section#audio');  
+    /*var audioSection = $('section#audio');  
     $('a.html5').click(function() {  
         var audio = $('<audio>', {  
              controls : 'controls'  
@@ -63,6 +32,44 @@ $(document).ready(function() {
         $('<source type="audio/mpeg" title="something">').attr('src', url).appendTo(audio);  
         audioSection.html(audio);  
         return false;  
-    });  
+    });*/
+  var audio;
+  var playlist;
+  var tracks;
+  var current;  
+
+  init();
+function init(){
+    current = 0;
+    audio = $('#audio');
+    playlist = $('#playlist');
+    tracks = playlist.find('li a');
+    len = tracks.length - 1;
+    audio[0].volume = .10;
+    audio[0].play();
+    playlist.find('a').click(function(e){
+        e.preventDefault();
+        link = $(this);
+        current = link.parent().index();
+        run(link, audio[0]);
+    });
+    audio[0].addEventListener('ended',function(e){
+        current++;
+        if(current == len){
+            current = 0;
+            link = playlist.find('a')[0];
+        }else{
+            link = playlist.find('a')[current];    
+        }
+        run($(link),audio[0]);
+    });
+}
+function run(link, player){
+        player.src = link.attr('href');
+        par = link.parent();
+        par.addClass('active').siblings().removeClass('active');
+        audio[0].load();
+        audio[0].play();
+}
 }); 
 </script>

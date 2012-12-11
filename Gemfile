@@ -12,6 +12,7 @@ gem 'rabl-rails'
 #for storing on amazon
 gem "fog", "~> 1.3.1"
 gem 'aws-s3', :require => 'aws/s3'
+#Rakesh Khatri-9960903132
 
 
 # Gems used only for assets and not required

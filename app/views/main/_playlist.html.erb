@@ -1,0 +1,18 @@
+<% if songs.present? %>
+<div class="page-header">
+  <h1>Playlist</h1>
+</div>
+  <ul id="playlist">
+    <% songs.each do |song| %>
+        <li class="active">
+            <a href="<%= song.song_upload.file.url if song.song_upload.present? %>">
+                <%= song.name %>
+            </a>
+        </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%#= link_to "Audio", song.song_upload.file.url, :class => "html5" %>
+
+    
