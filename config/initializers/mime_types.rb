@@ -5,5 +5,5 @@
 # Mime::Type.register_alias "text/html", :iphone
 
   Mime::Type.register "application/ogg", :ogg
-  Mime::Type.register "application/mp3", :mp3
+  Mime::Type.register "application/mpeg", :mp3
   Mime::Type.register "application/mp4", :mp4

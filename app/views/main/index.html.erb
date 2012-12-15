@@ -3,15 +3,21 @@
   <!--h1> All <%#=t '.title', :default => model_class.model_name.human.pluralize %></h1-->
 </div>
 
+<% if @songs.present? %>
+<audio id="audio" preload="auto" tabindex="0" controls="controls" content-type="application/mp3">
 
-<audio id="audio" preload="auto" tabindex="0" controls="" >
-    <source src="<%= @songs[0].song_upload.file.url %>">
+    <source src="<%= @songs[0].song_upload.file.url  if @songs[0].song_upload.present? %>" >
     Your Fallback goes here
 </audio>
 
 <div class="playlistControl">
   <%= render :partial => "playlist", :locals => {:songs => @songs} %>
 </div>
+<% else %>
+  <div class="noSongs">
+    <span>No songs available to play</span>
+  </div>
+<% end %>
 
  
 
@@ -22,7 +28,7 @@
             :class => 'btn btn-primary' %>
 
 <script type="text/javascript">
-$(document).ready(function() {  
+$(function() {  
     /*var audioSection = $('section#audio');  
     $('a.html5').click(function() {  
         var audio = $('<audio>', {  
