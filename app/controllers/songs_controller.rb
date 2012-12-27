@@ -4,6 +4,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
+    
     @songs = Song.order 'id'
 
     respond_to do |format|

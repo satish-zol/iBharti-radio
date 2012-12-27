@@ -44,7 +44,7 @@
         <td><%= File.basename(song.song_upload.file.path) %></td>
         <td><%= link_to "Audio", song.song_upload.file.url, :class => "html5" %></td> 
         <td><%= song.college.name if song.college.present? %></td>  
-        <td><%= song.city.name if song.city.present? %></td>
+        <td><%= song.college.city.name if song.college.present? %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_song_path(song), :class => 'btn btn-mini' %>
