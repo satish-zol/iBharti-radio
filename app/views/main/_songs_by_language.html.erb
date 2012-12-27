@@ -1,0 +1,8 @@
+<% if langs.present? %>
+<ul class="nav nav-list">
+  <li class="nav-header">Languages</li>
+  <% langs.each do |lang| %>
+    <li><%= link_to lang.name, {:action => 'songs_by_lang', :controller => 'main', :id => lang.id }, :class => "lang_#{lang.id}", :remote => true %></li>
+  <% end %>
+</ul>
+<% end %>

@@ -1,18 +1,30 @@
+
 <% if songs.present? %>
 <div class="page-header">
   <h1>Playlist</h1>
 </div>
-  <ul id="playlist">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Song.human_attribute_name(:song) %></th>
+      <th><%= Category.human_attribute_name(:category) %></th>
+      <th><%= Language.human_attribute_name(:language) %></th>
+      <th><%= Tag.human_attribute_name(:tag) %></th>
+    </tr>
+  </thead>
+  <tbody id="playlist">
     <% songs.each do |song| %>
-        <li class="active">
-            <a href="<%= song.song_upload.file.url if song.song_upload.present? %>">
-                <%= song.name %>
-            </a>
-        </li>
+      <tr class="active">
+        <td><a href="<%= song.song_upload.file.url if song.song_upload.present? %>"><%= song.name %></a></td>
+        <td><%= song.category.name %></td>
+        <td><%= song.language.name %></td>                
+        <td><%= song.tag.name %></td>    
+      </tr>
     <% end %>
-  </ul>
+  </tbody>
+</table>
 <% end %>
 
 <%#= link_to "Audio", song.song_upload.file.url, :class => "html5" %>
 
-    
+

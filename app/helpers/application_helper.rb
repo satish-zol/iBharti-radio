@@ -5,4 +5,10 @@ module ApplicationHelper
 	# 	filename.sub(/[^\w\.\-]/,'_')  
 	# end 
 
+	# def language_helper
+	# 	@langs ||= Language.order 'name'
+	# end
+
+
+
 end

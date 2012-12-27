@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+  before_filter :song_dependent_data 
 
   # GET /songs
   # GET /songs.json
@@ -27,11 +27,8 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   respond_to :json, :xml
   def new
-    @song = Song.new
-    @categories = Category.order 'name'
-    @languages = Language.order 'name'
-    @tags = Tag.order 'name'
-    @cities = City.order 'name'
+    #song_dependent_data
+    @song = Song.new    
     @song_upload = SongUpload.new
     #response = {:song => @song, :categories => @categories, :languages => @languages, :tags => @tags}
     # respond_to do |format|
@@ -43,11 +40,8 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    #song_dependent_data
     @song = Song.find(params[:id])
-    @categories = Category.order 'name'
-    @languages = Language.order 'name'
-    @tags = Tag.order 'name'
-    @cities = City.order 'name'
   end
 
   # POST /songs

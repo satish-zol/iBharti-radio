@@ -1,6 +1,8 @@
 IbhartiRadio::Application.routes.draw do
   
 
+  resources :colleges
+
   resources :cities
 
   resources :song_uploads
@@ -14,6 +16,8 @@ IbhartiRadio::Application.routes.draw do
   resources :categories
 
   match 'index' => 'main#index'
+  match 'songs_by_lang' => 'main#songs_by_lang'
+  match 'songs_by_cat' => 'main#songs_by_cat'
 
   root :to => "main#index" 
 

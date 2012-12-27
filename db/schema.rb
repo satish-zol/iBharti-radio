@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209133248) do
+ActiveRecord::Schema.define(:version => 20121227092604) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20121209133248) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "colleges", :force => true do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "colleges", ["city_id"], :name => "index_colleges_on_city_id"
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -48,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20121209133248) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "city_id"
+    t.integer  "college_id"
   end
 
   add_index "songs", ["category_id"], :name => "index_songs_on_category_id"

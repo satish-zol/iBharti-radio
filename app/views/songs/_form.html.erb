@@ -6,6 +6,16 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :college_id, :class => 'control-label' %>
+    <div class="controls">
+      <% if @colleges.present? %>
+        <%= f.collection_select :college_id, @colleges, :id, :name, {:include_blank => "Select College"}, :class => 'number_field' %>
+      <% else %>
+        <input class="text_field", placeholder="No Colleges found!", readonly/>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :category_id, :class => 'control-label' %>
     <div class="controls">
       <% if @categories.present? %>
