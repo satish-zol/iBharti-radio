@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
 
   def song_dependent_data
-  	@categories = Category.order 'name'
-    @languages = Language.order 'name'
-    @tags = Tag.order 'name'
-    @cities = City.order 'name'
-    @colleges = College.order 'name'
+  	@categories ||= Category.order 'name'
+    @languages ||= Language.order 'name'
+    @tags ||= Tag.order 'name'
+    @cities ||= City.order 'name'
+    @colleges ||= College.order 'name'
 
     return @categories, @languages, @tags, @cities, @colleges
   end

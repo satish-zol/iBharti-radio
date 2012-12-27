@@ -3,8 +3,7 @@ class MainController < ApplicationController
   respond_to :html, :json, :xml, :js
 
   def index
-  	
-    @songs = Song.all
+  	@songs = Song.all
   	respond_with(@songs)
   	# respond_to do |format|
    #    format.html # index.html.erb
