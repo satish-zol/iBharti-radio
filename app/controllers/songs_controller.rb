@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :song_dependent_data 
+  #before_filter :song_dependent_data 
 
   # GET /songs
   # GET /songs.json
