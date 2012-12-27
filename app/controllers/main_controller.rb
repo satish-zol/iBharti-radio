@@ -1,9 +1,9 @@
 class MainController < ApplicationController
-  
+  before_filter :song_dependent_data 
   respond_to :html, :json, :xml, :js
 
   def index
-  	song_dependent_data
+  	
     @songs = Song.all
   	respond_with(@songs)
   	# respond_to do |format|

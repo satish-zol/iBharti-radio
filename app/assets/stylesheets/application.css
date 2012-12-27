@@ -9,26 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require player
  *= require_tree .
  */
 
-
-#playlist,audio { 
-	
-	width:400px;
-	padding:20px;
-}
-
-/* Now Playing
-================================================== */
-.nowplaying {
-	width:260px;
-	float:right;
-	font-size:11px;
-}
-.nowplaying p{
-	margin-bottom:10px;
-}
-/* Custom Scroll Bar
-================================================== */
