@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails_admin'
 gem 'mysql2'
 gem 'pg', :group => [:production]
 #for api used rabl
@@ -31,6 +31,10 @@ gem "twitter-bootstrap-rails", ">= 2.1.4"
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem "devise", ">= 2.1.2"
+gem "omniauth-facebook", "1.4.0"
+gem "cancan", ">= 1.6.8"
+gem "rolify", ">= 3.2.0"
 #gem 'soundmanager2-rails'
 
 # To use ActiveModel has_secure_password
@@ -46,4 +50,4 @@ gem 'rmagick'
 # gem 'capistrano'
 
 # To use debugger
- gem 'debugger'
+ gem 'debugger', :group => [:development]

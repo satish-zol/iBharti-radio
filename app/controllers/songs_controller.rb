@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
-  before_filter :song_dependent_data 
+  before_filter :authenticate_user!
+  before_filter :song_dependent_data
+  load_and_authorize_resource 
 
   # GET /songs
   # GET /songs.json

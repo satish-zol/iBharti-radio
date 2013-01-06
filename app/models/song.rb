@@ -1,4 +1,5 @@
 class Song < ActiveRecord::Base
+  resourcify
   belongs_to :college	
   belongs_to :category
   belongs_to :language

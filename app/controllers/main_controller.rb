@@ -1,5 +1,7 @@
 class MainController < ApplicationController
+  
   before_filter :song_dependent_data 
+  
   respond_to :html, :json, :xml, :js
 
   def index

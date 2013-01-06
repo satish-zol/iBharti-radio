@@ -1,6 +1,22 @@
 IbhartiRadio::Application.routes.draw do
   
 
+  
+  devise_for :users, 
+    :controllers => { 
+      :sessions           => 'devise/sessions', 
+      :registrations      => 'devise/registrations', 
+      :confirmations      => 'devise/confirmations', 
+      :passwords          => 'devise/passwords',
+      :omniauth_callbacks => 'users/omniauth_callbacks'
+    },
+    :path => '',
+    :path_names => {:sign_in => 'users/sign_in', :sign_out => 'users/sign_out', :sign_up => 'users/sign_up'}
+  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
+  resources :users  
+
   resources :colleges
 
   resources :cities

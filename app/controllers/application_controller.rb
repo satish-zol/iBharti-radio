@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   # helper_method :language_helper
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, :alert => exception.message
+  end
+
 
 
   private 
@@ -16,5 +20,8 @@ class ApplicationController < ActionController::Base
 
     return @categories, @languages, @tags, @cities, @colleges
   end
+
+
+
 
 end
