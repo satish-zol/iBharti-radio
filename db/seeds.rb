@@ -13,11 +13,11 @@ Role.create([
 	{:name => 'user'}
 	], :without_protection => true)
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'Super Admin', :email => 'admin@collegeradio.com', :password => 'bpsi@123', :password_confirmation => 'bpsi@123'
+user = User.create! :name => 'Super Admin', :email => 'admin@collegeradio.com', :password => 'bpsi@123', :password_confirmation => 'bpsi@123', :confirmed_at => Time.now
 puts 'New user created:' << user.name
-user2 = User.create! :name => 'College Admin', :email => 'collegeadmin@collegeradio.com', :password => 'bpsi@123', :password_confirmation => 'bpsi@123'
+user2 = User.create! :name => 'College Admin', :email => 'collegeadmin@collegeradio.com', :password => 'bpsi@123', :password_confirmation => 'bpsi@123', , :confirmed_at => Time.now
 puts 'New user created:' << user2.name
-user3 = User.create! :name => 'Normal user', :email => 'user@example.com', :password => 'bpsi@123', :password_confirmation => 'bpsi@123'
+user3 = User.create! :name => 'Normal user', :email => 'user@example.com', :password => 'bpsi@123', :password_confirmation => 'bpsi@123', , :confirmed_at => Time.now
 puts 'New user created:' << user3.name
 user.add_role :super_admin
 user2.add_role :college_admin
