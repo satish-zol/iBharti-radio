@@ -8,6 +8,7 @@ gem 'rails_admin'
 gem 'mysql2'
 gem 'pg', :group => [:production]
 #for api used rabl
+gem 'yajl-ruby'
 gem 'rabl-rails'
 #for storing on amazon
 gem "fog", "~> 1.3.1"

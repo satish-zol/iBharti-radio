@@ -2,12 +2,25 @@
 <div class="page-header">
   <!--h1> All <%#=t '.title', :default => model_class.model_name.human.pluralize %></h1-->
 </div>
+  <!-- <embed src="http://59.162.67.171:8000/live" type="application/x-mplayer2"  -->
+width="220" height="50" autostart="0" align="center" border="0"
+transparentatstart="0" animationatstart="1" showcontrols="true" 
+showaudiocontrols="1" showpositioncontrols="0" showtracker="0"
+autosize="0" showstatusbar="1" displaysize="false" />
+</embed>
 
-  <% if @songs.present? %>
+
+
     <audio id="audio" preload="auto" tabindex="0" controls="controls" content-type="application/mp3">
-      <source src="<%= @songs[0].song_upload.file.url  if @songs[0].song_upload.present? %>" >
+      <!-- <source src="<%#= @songs[0].song_upload.file.url  if @songs[0].song_upload.present? %>" > -->
+      <source src="http://117.198.90.81:8000/live">
       Your Fallback goes here
     </audio>
+
+
+
+  <% if @songs.present? %>
+
 
     <div class="playlistControl">
       <%= render :partial => "playlist", :locals => {:songs => @songs} %>
