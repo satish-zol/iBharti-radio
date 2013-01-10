@@ -38,6 +38,7 @@ class Api::SessionsController < Api::BaseController
   
   def destroy
     sign_out(resource_name)
+    render :json=> {:success=>true}
   end
  
   protected
