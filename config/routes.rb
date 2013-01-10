@@ -1,6 +1,7 @@
 IbhartiRadio::Application.routes.draw do
   
 namespace :api do
+  
   devise_for :users, :controllers => { 
       :sessions           => 'api/sessions', 
       :registrations      => 'api/registrations' 

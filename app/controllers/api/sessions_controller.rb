@@ -1,10 +1,14 @@
 class Api::SessionsController < Api::BaseController
   prepend_before_filter :require_no_authentication, :only => [:create ]
-  #include Devise::Controllers::InternalHelpers
+  include Devise::Controllers#::InternalHelpers
   
   before_filter :ensure_params_exist
  
   respond_to :json
+
+   # def new
+   #  super
+   # end
   
   def create
     build_resource
