@@ -15,7 +15,7 @@ class Api::SessionsController < Api::BaseController
     if resource.valid_password?(params[:user_login][:password])
       sign_in("user", resource)
       resource.reset_authentication_token!
-      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
+      render :json=> { :response_api => [{:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email } ] }
       return
     end
     invalid_login_attempt
