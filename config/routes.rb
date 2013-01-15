@@ -3,11 +3,12 @@ IbhartiRadio::Application.routes.draw do
 namespace :api do
   devise_for :users, :controllers => { 
       :sessions           => 'api/sessions', 
-      :registrations      => 'api/registrations' 
-      #:confirmations      => 'devise/confirmations', 
+      :registrations      => 'api/registrations', 
+      :confirmations      => 'api/confirmations' 
       #:passwords          => 'devise/passwords',
       #:omniauth_callbacks => 'users/omniauth_callbacks'
     }
+   
     
   
 end  
