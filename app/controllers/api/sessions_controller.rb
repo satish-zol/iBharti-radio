@@ -4,6 +4,7 @@ class Api::SessionsController < Api::BaseController
   include Devise::Controllers#::InternalHelpers
   
   before_filter :ensure_params_exist
+  
  
   respond_to :json
 
@@ -13,13 +14,18 @@ class Api::SessionsController < Api::BaseController
     return invalid_login_attempt unless resource
  
     if resource.valid_password?(params[:user_login][:password])
+      if resource.confirmed_at.blank?
+        render :json=> {:response_api => [{:success=>false, :message=>"You have to confirm your account before continuing."}, :status=>401]}
+        return
+      end
       sign_in("user", resource)
       #resource.reset_authentication_token!
       render :json=> { :response_api => [{:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email } ] }
       return
+    else 
+      invalid_login_attempt
     end
-    invalid_login_attempt
-  
+    
   end
   
   # def create
@@ -51,4 +57,6 @@ class Api::SessionsController < Api::BaseController
     warden.custom_failure!
     render :json=> {:response_api => [{:success=>false, :message=>"Error with your login or password"}, :status=>401]}
   end
+
+
 end
