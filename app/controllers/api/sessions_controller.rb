@@ -43,6 +43,7 @@ class Api::SessionsController < Api::BaseController
   # end
   
   def destroy
+    
     sign_out(resource_name)
     render :json=> {:success=>true}
   end

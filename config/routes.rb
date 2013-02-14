@@ -1,5 +1,7 @@
 IbhartiRadio::Application.routes.draw do
   
+mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
 namespace :api do
   devise_for :users, :controllers => { 
       :sessions           => 'api/sessions', 
@@ -24,7 +26,7 @@ end
     :path => '',
     :path_names => {:sign_in => 'users/sign_in', :sign_out => 'users/sign_out', :sign_up => 'users/sign_up'}
   
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
   
   resources :users  
 

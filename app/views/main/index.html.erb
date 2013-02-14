@@ -2,21 +2,25 @@
 <div class="page-header">
   <!--h1> All <%#=t '.title', :default => model_class.model_name.human.pluralize %></h1-->
 </div>
-  <!--embed src="http://59.162.67.171:8000/live" type="application/x-mplayer2" 
-width="220" height="50" autostart="0" align="center" border="0"
-transparentatstart="0" animationatstart="1" showcontrols="true" 
-showaudiocontrols="1" showpositioncontrols="0" showtracker="0"
-autosize="0" showstatusbar="1" displaysize="false" />
-</embed-->
 
-
-
-    <audio id="audio" preload="auto" tabindex="0" controls="controls" content-type="application/mp3">
-      <!-- <source src="<%#= @songs[0].song_upload.file.url  if @songs[0].song_upload.present? %>" > -->
-      <source src="http://10.0.0.8:8000/live">
-      Your Fallback goes here
-    </audio>
-
+    <div class="audiojs" classname="audiojs" id="audiojs_wrapper0">
+      <audio src="http://184.73.196.212:8000/live" preload="auto" autoplay="autoplay" loop="loop"></audio>
+      <div class="play-pause"> 
+          <p class="play"></p>
+          <p class="pause"></p>
+          <p class="loading"></p>
+          <p class="error"></p>
+      </div>
+      <div class="scrubber">
+        <div class="progress"></div>
+        <div class="loaded"></div> 
+      </div>
+      <div class="time">
+        <em class="played">00:00</em>/<strong class="duration">00:00</strong> 
+      </div>
+      <div class="error-message"></div>
+    </div>
+<script src="/assets/audio.min.js"></script>
 
 
   <% if @songs.present? %>
@@ -41,56 +45,19 @@ autosize="0" showstatusbar="1" displaysize="false" />
             :class => 'btn btn-primary' %>
 
 <script type="text/javascript">
-$(function() {  
-    /*var audioSection = $('section#audio');  
-    $('a.html5').click(function() {  
-        var audio = $('<audio>', {  
-             controls : 'controls'  
-        });  
-        var url = $(this).attr('href');  
-        $('<source type="audio/mpeg" title="something">').attr('src', url).appendTo(audio);  
-        audioSection.html(audio);  
-        return false;  
-    });*/
-  var audio;
-  var playlist;
-  var tracks;
-  var current;  
+// var soundObject = soundManager.createSound({
+//  id:'mySound1',
+//  url:'http://184.73.196.212:8000/live'
+// });
+// soundObject.play('mySound1');
 
-  init();
-function init(){
-    current = 0;
-    audio = $('#audio');
-    playlist = $('#playlist');
-    tracks = playlist.find('li a');
-    len = tracks.length - 1;
-    audio[0].volume = .10;
-    audio[0].play();
-    playlist.find('a').click(function(e){
-        e.preventDefault();
-        link = $(this);
-        current = link.parent().index();
-        run(link, audio[0]);
-    });
-    audio[0].addEventListener('ended',function(e){
-        current++;
-        if(current == len){
-            current = 0;
-            link = playlist.find('a')[0];
-        }else{
-            link = playlist.find('a')[current];    
-        }
-        run($(link),audio[0]);
-    });
-}
-function run(link, player){
-        player.src = link.attr('href');
-        par = link.parent();
-        par.addClass('active').siblings().removeClass('active');
-        audio[0].load();
-        audio[0].play();
-}
-}); 
+// var sURL = 'http://184.73.196.212:8000/live';
+// if (soundManager.canPlayURL(sURL)) {
+//  soundManager.createSound('fooSound',sURL);
+// }
+audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
 </script>
 
 

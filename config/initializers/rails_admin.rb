@@ -4,7 +4,7 @@
 RailsAdmin.config do |config|
   config.authenticate_with {} #leave it to authorize
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.has_role? :super_admin
+    redirect_to main_app.root_path #unless current_user.has_role? :super_admin
   end
 
   ################  Global configuration  ################
