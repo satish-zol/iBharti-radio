@@ -7,7 +7,8 @@ class MainController < ApplicationController
 
   def index
 
-  	@songs = Song.order 'college_id'
+  	#@songs = Song.order 'college_id'
+    @songs = college.order 'city_id'
   	respond_with(@songs)
   	# respond_to do |format|
    #    format.html # index.html.erb
