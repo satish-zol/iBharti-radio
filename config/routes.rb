@@ -51,6 +51,7 @@ end
   resources :categories
 
   match 'index' => 'main#index'
+  match 'live_station' => 'main#live_station'
   match 'songs_by_lang' => 'main#songs_by_lang'
   match 'songs_by_cat' => 'main#songs_by_cat'
 

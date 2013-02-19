@@ -7,14 +7,21 @@ class MainController < ApplicationController
 
   def index
 
-  	#@songs = Song.order 'college_id'
-    @songs = college.order 'city_id'
+  	@songs = Song.order 'college_id'
+    
   	respond_with(@songs)
   	# respond_to do |format|
    #    format.html # index.html.erb
    #    format.json { render json: @songs }
    #  end
   end
+
+  def live_station
+    @live_stations = College.order 'city_id'
+
+    respond_with(@live_stations)
+  end
+
 
 
   def songs_by_lang   
