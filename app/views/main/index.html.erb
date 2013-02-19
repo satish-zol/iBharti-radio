@@ -1,9 +1,16 @@
+<style type="text/css">
+
+.blue {
+  color: #09F;
+}
+
+</style>
 <%- model_class = Song -%>
 <div class="page-header">
   <!--h1> All <%#=t '.title', :default => model_class.model_name.human.pluralize %></h1-->
 </div>
 
-    <div class="audiojs" classname="audiojs" id="audiojs_wrapper0">
+<!--     <div class="audiojs" classname="audiojs" id="audiojs_wrapper0">
       <audio src="http://184.73.196.212:8000/live" preload="auto" autoplay="autoplay" loop="loop"></audio>
       <div class="play-pause"> 
           <p class="play"></p>
@@ -20,7 +27,9 @@
       </div>
       <div class="error-message"></div>
     </div>
-<script src="/assets/audio.min.js"></script>
+<script src="/assets/audio.min.js"></script> -->
+
+<div id='mediaplayer' class='blue'></div>
 
 
   <% if @songs.present? %>
@@ -55,9 +64,64 @@
 // if (soundManager.canPlayURL(sURL)) {
 //  soundManager.createSound('fooSound',sURL);
 // }
-audiojs.events.ready(function() {
-    var as = audiojs.createAll();
+// audiojs.events.ready(function() {
+//     var as = audiojs.createAll();
+//   });
+</script>
+
+<script type='text/javascript' src='/assets/jwplayer/jwplayer.js'></script>
+
+
+
+<script type="text/javascript">
+  jwplayer('mediaplayer').setup({
+    'flashplayer': '/assets/jwplayer/jwplayer.flash.swf',
+    'id': 'playerID',
+    'width': '480',
+    'height': '35',
+    'file': "http://184.73.196.212:8000/live.mp3",
+    //'streamer': 'rtmp://184.73.196.212:8000/live',
+    'controlbar': 'auto',
+    'autostart': 'true',
+    'screencolor': '#0099FF;',
+    'plugins': {
+      'audiolivestream-1': {
+        format: 'Playing: %track',
+        buffer: 'Buffering: %perc%',
+        backgroundCss: true,
+        trackCss: 'color: #fff; font-size: 11px;'
+        
+
+      }
+    }
   });
+</script>
+
+<script type="text/javascript">
+  // var config = {
+  //   'screencolor': '0099FF',
+  //   'controlbar': 'none',
+  //   'width': '430',
+  //   'height': '35',
+  //   'plugins': {
+  //     'audiolivestream-1': {
+  //       format: 'Playing: %track',
+  //       buffer: 'Buffering: %perc%',
+  //       backgroundCss: 'gradient',
+  //       trackCss: 'color: #fff; font-size: 11px;'
+  //     }
+  //   },
+  //   'file': 'http://184.73.196.212:8000/live.mp3',
+  //   //'streamer': 'rtmp://82.201.53.8:80/shoutcast',
+  //   'autostart': 'true',
+  //   'modes': [
+  //     {
+  //       type: 'flash',
+  //       src: '/assets/jwplayer/jwplayer.flash.swf'
+  //     }
+  //   ]
+  // }
+  // jwplayer('mediaplayer').setup(config);
 </script>
 
 
