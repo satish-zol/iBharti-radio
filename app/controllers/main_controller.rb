@@ -17,7 +17,7 @@ class MainController < ApplicationController
   end
 
   def live_station
-    @live_stations = College.order 'city_id'
+    @live_stations = College.order 'created_at'
 
     respond_with(@live_stations)
   end
