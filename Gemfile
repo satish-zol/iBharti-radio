@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'rails_admin'
+#gem 'rails_admin'
 gem 'mysql2'
 gem 'pg', :group => [:production]
 #for api used rabl
@@ -36,7 +36,11 @@ gem "devise", ">= 2.1.2"
 gem "omniauth-facebook", "1.4.0"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
-#gem 'soundmanager2-rails'
+
+#active admin gem 
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,39 +1,30 @@
 IbhartiRadio::Application.routes.draw do
   
-mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  ActiveAdmin.routes(self)
 
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    devise_for :users, 
+        :controllers => { 
+          :sessions           => 'devise/sessions', 
+          :registrations      => 'devise/registrations', 
+          :confirmations      => 'devise/confirmations', 
+          :passwords          => 'devise/passwords',
+          :omniauth_callbacks => 'users/omniauth_callbacks'
+        },
+        :path => '',
+        :path_names => {:sign_in => 'users/sign_in', :sign_out => 'users/sign_out', :sign_up => 'users/sign_up'}
 
+    namespace :api do
+      devise_for :users, :controllers => { 
+          :sessions           => 'api/sessions', 
+          :registrations      => 'api/registrations', 
+          :confirmations      => 'api/confirmations' 
+          #:passwords          => 'devise/passwords',
+          #:omniauth_callbacks => 'users/omniauth_callbacks'
+        }  
+    end  
 
-devise_for :users, 
-    :controllers => { 
-      :sessions           => 'devise/sessions', 
-      :registrations      => 'devise/registrations', 
-      :confirmations      => 'devise/confirmations', 
-      :passwords          => 'devise/passwords',
-      :omniauth_callbacks => 'users/omniauth_callbacks'
-    },
-    :path => '',
-    :path_names => {:sign_in => 'users/sign_in', :sign_out => 'users/sign_out', :sign_up => 'users/sign_up'}
-  
-
-
-
-namespace :api do
-  devise_for :users, :controllers => { 
-      :sessions           => 'api/sessions', 
-      :registrations      => 'api/registrations', 
-      :confirmations      => 'api/confirmations' 
-      #:passwords          => 'devise/passwords',
-      #:omniauth_callbacks => 'users/omniauth_callbacks'
-    }
-   
-    
-  
-end  
-  
-  
-  
-  
+ 
   resources :users  
 
   resources :colleges
@@ -51,7 +42,7 @@ end
   resources :categories
 
   match 'index' => 'main#index'
-  match 'live_station' => 'main#live_station'
+  match 'live_station' => 'main#live_stationhahahahahahah'
   match 'songs_by_lang' => 'main#songs_by_lang'
   match 'songs_by_cat' => 'main#songs_by_cat'
 
