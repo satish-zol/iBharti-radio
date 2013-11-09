@@ -17,7 +17,7 @@ gem 'nokogiri'
 gem 'awesome_print'
 
 #For compressing and sending song to icecast 
-gem 'ruby-shout'
+#gem 'ruby-shout'
 gem 'formtastic'
 # Gems used only for assets and not required
 # in production environments by default.
