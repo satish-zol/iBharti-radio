@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/carrierwaveuploader/carrierwave.git
+  revision: 745db6e26f47adca3a28c93170b22216b5480f9a
+  tag: v0.7.1
+  specs:
+    carrierwave (0.7.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+
+GIT
   remote: https://github.com/plataformatec/devise.git
   revision: b2b8b5bf9a390690c48542b295c918823c95069f
   tag: v2.2.0
@@ -64,10 +73,6 @@ GEM
       thor
     builder (3.0.4)
     cancan (1.6.10)
-    carrierwave (0.9.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -236,7 +241,7 @@ DEPENDENCIES
   awesome_print
   aws-s3
   cancan (>= 1.6.8)
-  carrierwave
+  carrierwave!
   coffee-rails (~> 3.2.1)
   debugger
   devise!

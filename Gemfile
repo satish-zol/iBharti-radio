@@ -33,7 +33,7 @@ end
 
 gem "twitter-bootstrap-rails", ">= 2.1.4"
 gem 'jquery-rails'
-gem 'carrierwave'
+gem 'carrierwave', :git => "https://github.com/carrierwaveuploader/carrierwave.git", :tag => "v0.7.1"
 gem 'rmagick'
 gem "devise", :git => "https://github.com/plataformatec/devise.git", :tag => "v2.2.0"
 gem "omniauth-facebook", "1.4.0"
