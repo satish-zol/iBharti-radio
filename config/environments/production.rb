@@ -74,8 +74,8 @@ IbhartiRadio::Application.configure do
     domain: "www.gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "satishz@blueplanetinfosolutions.com",
-    password: "satish@123"
+    user_name: "akshayg@blueplanetinfosolutions.com",
+    password: "nagpur123"
   }
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
