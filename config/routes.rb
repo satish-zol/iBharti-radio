@@ -1,5 +1,8 @@
 IbhartiRadio::Application.routes.draw do
-  
+  root :to => "main#index" 
+  ActiveAdmin.routes(self)
+
+    devise_for :admin_users, ActiveAdmin::Devise.config
     devise_for :users, 
         :controllers => { 
           :sessions           => 'devise/sessions', 
@@ -49,13 +52,6 @@ IbhartiRadio::Application.routes.draw do
   match 'show_songs_in_playlist' => 'admin/songs#show_songs_in_playlist'
   match 'shout_playlist/:id' => 'colleges#shout_playlist'
   match 'collegeradio_play_page' => 'main#collegeradio_play_page'
- 
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-
-root :to => "main#index"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
