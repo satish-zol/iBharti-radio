@@ -23,7 +23,7 @@ body
 		<%#= @college.image.present? ? image_tag(@college.image, :style => "height: inherit;") : image_tag("/assets/default_radio_image.jpg", :style => "height: inherit;") %>
 	</div> -->
 
-	<div class="page-header" style=" height: 388px;width: 343px; border: 1px solid white; float: left;margin-top: 0;">
+	<div class="page-header" style=" height: 362px;width: 343px; border: 1px solid white; float: left;margin-top: 0;">
 		<div style="border-bottom: 1px solid white;">
 	  <h1 style="text-align: center;font-size: 30.5px;text-shadow: 1px 1px red;"><font color="white"><%= @college.name.titleize %></font></h1>
 	  <span style="display: block;text-align: center;text-shadow: 1px 1px red"><font style="color: #FFFFFF; font-size: 20px; font-weight: bold;"><%= @college.city(@college.city_id).name if @college.city.present? %></font></span>

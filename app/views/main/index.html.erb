@@ -29,22 +29,22 @@ background-size: cover;
   <h1 style="text-align: center;"><font color="white">College Radio Stations</font></h1>
 </div>
   
-  <div style="border: 1px solid;color: white;border-radius: 15px 15px 15px 15px;margin-left: 24px;width: 610px;">
     <% @colleges.each do |college| %>
+  <div style="border: 1px solid;color: white;border-radius: 15px 15px 15px 15px;margin-left: 24px;width: 610px;">
 
-    <div style="border-bottom: 1px solid;padding: 10px 0px 0px 20px;">
+    <div style="padding: 10px 0 6px 20px;">
       <a href="javascript:void(0);" onclick = "clg_radio('<%#= 'http://media.spacial.com/player/cheapeststream/index.html?sid=11593' %>');" style="border: solid 1px #CCC; width:62px; height:62px; float: left;" ><%= college.image.present? ? image_tag(college.image, :style => "height: inherit;") : image_tag("/assets/default_radio_image.jpg") %></a> 
       <div class="clear" ></div>
-      <div style="display: inline-block; padding: 5px;">
-        <h3 style="margin-top: -10px;">
+      <div style="display: inline-block; padding: 13px;">
+        <h3 style="margin-top: -10px;font-size: 30.5px;">
         <!-- <a href="javascript:void(0);" onclick = "clg_radio('<%#= 'http://media.spacial.com/player/cheapeststream/index.html?sid=11593' %>');" style="color: white;" ><%#= "#{college.name}".titleize %></a> -->
         <%= link_to "#{college.name}".titleize, collegeradio_play_page_path(:id => college.id), :style => "color: white;text-shadow: 2px 2px black" %></h3>
-        <span style="display: block;text-shadow: 2px 2px black"><%= college.city(college.city_id).name if college.city.present? %></span>
+        <span style="display: block;text-shadow: 2px 2px black;font-size: 24.5px"><%= college.city(college.city_id).name if college.city.present? %></span>
       </div>
     </div>
     
-    <% end %>
   </div>
+    <% end %>
  
  <!-- for slider -->
 <!-- <div class="outside">
