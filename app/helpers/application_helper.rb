@@ -1,4 +1,4 @@
-require 'shout'
+#require 'shout'
 module ApplicationHelper
 
 	# def sanitize_filename(file_name)  

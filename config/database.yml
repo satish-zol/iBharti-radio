@@ -28,7 +28,7 @@ test:
   database: ibharti-radio_test
   pool: 5
   username: root
-  password: ror
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -38,5 +38,5 @@ production:
   database: ibharti-radio_production
   pool: 5
   username: root
-  password: ror
+  password: 
   socket: /var/run/mysqld/mysqld.sock

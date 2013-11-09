@@ -1,4 +1,4 @@
-require "shout"
+#require "shout"
 class College < ActiveRecord::Base
   #after_create :mount_college 
   #after_update :update_mount_point
