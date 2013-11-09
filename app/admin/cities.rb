@@ -1,5 +1,5 @@
 ActiveAdmin.register City do
-	menu false
 	
+	menu false
   
 end

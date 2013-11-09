@@ -51,25 +51,26 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" >
       <div class="row-fluid">
-        <div class="span3">
+        <!-- <div class="span3" style="margin-top: 80px">
           <div class="well sidebar-nav">
-            <%= render :partial => 'main/songs_by_category', :locals => {:categories => @categories } %>
-          </div><!--/.well -->
+            <%#= render :partial => 'main/songs_by_category', :locals => {:categories => @categories } %>
+          </div>
           <div class="well sidebar-nav">
-            <%= render :partial => 'main/songs_by_language', :locals => {:langs => @languages } %>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
+            <%#= render :partial => 'main/songs_by_language', :locals => {:langs => @languages } %>
+          </div>
+        </div> -->
+        <!-- <div class="span9"> -->
           <%= bootstrap_flash %>
           <%#= render 'layouts/messages' %>
           <%= yield %>
-        </div>
-      </div><!--/row-->
+        <!-- </div> -->
+      </div>
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <!-- <p style="color: white;">&copy; Company 2012</p> -->
+        <div style="margin-left: 26px;width: 127px;color: white;">&copy; Company 2012</div>
       </footer>
 
     </div> <!-- /container -->

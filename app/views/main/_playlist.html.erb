@@ -15,15 +15,15 @@
   </thead>
   <tbody id="playlist">
     <% songs.each do |song| %>
-    <% if song.song_upload.present? %>
+   
       <tr class="active">
-        <td><a href="<%= song.song_upload.file.url if song.song_upload.present? %>"><%= song.name %></a></td>
+        <td><a href="<%= song.file.url %>"><%= song.name %></a></td>
         <td><%= song.college.name %></td>
         <td><%= song.category.name %></td>
         <td><%= song.language.name %></td>                
         <td><%= song.tag.name %></td>    
       </tr>
-      <% end %>
+    
     <% end %>
   </tbody>
 </table>

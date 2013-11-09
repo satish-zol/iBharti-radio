@@ -1,49 +1,68 @@
+<!-- jQuery library (served from Google) -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+
+<!-- bxSlider CSS file -->
+<%= javascript_include_tag "jquery.min.js" %>
+<%= stylesheet_link_tag "jquery.bxslider/jquery.bxslider.css" %>
+<%= javascript_include_tag "jwplayer/jwplayer.js" %>
+<%#= javascript_include_tag "jquery.bxslider/jquery.bxslider.js"%>
+<%= javascript_include_tag "jquery.bxslider/jquery.bxslider.min.js"%>
+
+
 <style type="text/css">
 
 .blue {
   color: #09F;
 }
+body
+{
+height: 100%;
+background:#5d9ab2 url('/assets/hd-iphone-4s-wallpapers-62ios.jpg') no-repeat ;
+background-size: cover;
+}
+
 
 </style>
+
 <%- model_class = Song -%>
-<div class="page-header">
-  <!--h1> All <%#=t '.title', :default => model_class.model_name.human.pluralize %></h1-->
+<div class="page-header" style="width: 620px;">
+  <h1 style="text-align: center;"><font color="white">College Radio Stations</font></h1>
 </div>
+  
+  <div style="border: 1px solid;color: white;border-radius: 15px 15px 15px 15px;margin-left: 24px;width: 610px;">
+    <% @colleges.each do |college| %>
 
-<!--     <div class="audiojs" classname="audiojs" id="audiojs_wrapper0">
-      <audio src="http://184.73.196.212:8000/live" preload="auto" autoplay="autoplay" loop="loop"></audio>
-      <div class="play-pause"> 
-          <p class="play"></p>
-          <p class="pause"></p>
-          <p class="loading"></p>
-          <p class="error"></p>
+    <div style="border-bottom: 1px solid;padding: 10px 0px 0px 20px;">
+      <a href="javascript:void(0);" onclick = "clg_radio('<%#= 'http://media.spacial.com/player/cheapeststream/index.html?sid=11593' %>');" style="border: solid 1px #CCC; width:62px; height:62px; float: left;" ><%= college.image.present? ? image_tag(college.image, :style => "height: inherit;") : image_tag("/assets/default_radio_image.jpg") %></a> 
+      <div class="clear" ></div>
+      <div style="display: inline-block; padding: 5px;">
+        <h3 style="margin-top: -10px;">
+        <!-- <a href="javascript:void(0);" onclick = "clg_radio('<%#= 'http://media.spacial.com/player/cheapeststream/index.html?sid=11593' %>');" style="color: white;" ><%#= "#{college.name}".titleize %></a> -->
+        <%= link_to "#{college.name}".titleize, collegeradio_play_page_path(:id => college.id), :style => "color: white;text-shadow: 2px 2px black" %></h3>
+        <span style="display: block;text-shadow: 2px 2px black"><%= college.city(college.city_id).name if college.city.present? %></span>
       </div>
-      <div class="scrubber">
-        <div class="progress"></div>
-        <div class="loaded"></div> 
-      </div>
-      <div class="time">
-        <em class="played">00:00</em>/<strong class="duration">00:00</strong> 
-      </div>
-      <div class="error-message"></div>
     </div>
-<script src="/assets/audio.min.js"></script> -->
-
+    
+    <% end %>
+  </div>
+ 
+ <!-- for slider -->
+<!-- <div class="outside">
+  <p><span id="slider-prev"></span> | <span id="slider-next"></span></p>
+</div> -->
 <div id='mediaplayer' class='blue'></div>
 
-
-  <% if @songs.present? %>
-
-
-    <div class="playlistControl">
-      <%= render :partial => "playlist", :locals => {:songs => @songs} %>
+  <!-- <%# if @songs.present? %>
+   <div class="playlistControl">
+      <#%= render :partial => "playlist", :locals => {:songs => @songs} %>
     </div>
-  <% else %>
+  <#% else %>
     <div class="noSongs">
       <span>No songs available to play</span>
     </div>
-  <% end %>
-
+  <#% end %> -->
+ 
+  
 
 
  
@@ -53,7 +72,8 @@
             new_song_path,
             :class => 'btn btn-primary' %>
 
-<script type="text/javascript">
+<script type="text/javascript" src='http://media.spacial.com/player/cheapeststream/index.html?sid=11593'>
+
 // var soundObject = soundManager.createSound({
 //  id:'mySound1',
 //  url:'http://184.73.196.212:8000/live'
@@ -69,34 +89,103 @@
 //   });
 </script>
 
-<script type='text/javascript' src='/assets/jwplayer/jwplayer.js'></script>
-
-
-
+<!-- <script src='/assets/jwplayer/jwplayer.js'></script> -->
 <script type="text/javascript">
-  jwplayer('mediaplayer').setup({
-    'flashplayer': '/assets/jwplayer/jwplayer.flash.swf',
-    'id': 'playerID',
-    'width': '480',
-    'height': '35',
-    'file': "http://184.73.196.212:8000/live.mp3",
-    //'streamer': 'rtmp://184.73.196.212:8000/live',
-    'controlbar': 'auto',
-    'autostart': 'true',
-    'screencolor': '#0099FF;',
-    'plugins': {
-      'audiolivestream-1': {
-        format: 'Playing: %track',
-        buffer: 'Buffering: %perc%',
-        backgroundCss: true,
-        trackCss: 'color: #fff; font-size: 11px;'
+// function clg_radio(url){
+//   var config = {
+//     'screencolor': '333333',
+//     'controlbar': 'none',
+//     'width': '430',
+//     'height': '35',
+//     'provider': 'sound',
+
+//     'plugins': {
+//       'audiolivestream-1': {
+//         format: 'Playing: %track',
+//         buffer: 'Buffering: %perc%',
+//         backgroundCss: 'gradient',
+//         trackCss: 'color: #fff; font-size: 11px;'
+//       }
+//     },
+//     'file': url,
+//     'streamer': 'rtmp://173.161.245.231:8005/airtime_128.m3u',
+//     'autostart': 'true',
+//     'modes': [
+//       {
+//         type: 'mp3',
+//         src: '/assets/jwplayer/jwplayer.flash.swf'
+//       }
+//     ]
+//   }
+//   jwplayer('mediaplayer').setup(config).play();
+// }
+</script>
+<!-- Commented bcoz it is placed in next page -->
+<!-- <iframe title="Flash Player" src="http://media.spacial.com/player/cheapeststream/index.html?sid=11593"
+width="340"
+height="270"
+scrolling="no"
+frameborder="0"
+marginheight="0"
+marginwidth="0"
+allowtransparency="true" 
+title="The iframe flash player display.">
+            <p>Your browser does not support iframes. <a href="http://media.spacial.com/player/cheapeststream/index.html?sid=11593">View the content of this inline frame</a> with your browser</p>
+            </iframe> -->     
+
+ <script type="text/javascript">
+// function clg_radio(url){
+
+//   jwplayer('mediaplayer').setup({
+//     'flashplayer': '/assets/jwplayer/jwplayer.flash.swf',
+//     'id': 'playerID',
+//     'width': '480',
+//     'height': '35',
+//     'file': 'http://173.161.245.231:8005/airtime_128',
+//     //'streamer': 'rtmp://184.73.196.212:8000/live',
+//     'controlbar': 'auto',
+//     'autostart': 'true',
+//     'screencolor': '#0099FF;',
+//     'plugins': {
+//       'audiolivestream-1': {
+//         format: 'Playing: %track',
+//         buffer: 'Buffering: %perc%',
+//         backgroundCss: true,
+//         trackCss: 'color: #fff; font-size: 11px;'
         
 
-      }
-    }
+//       }
+//     }
+//   });
+// }
+  
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+
+    $('.bxslider').bxSlider({
+      default: null,
+      //mode: 'fade',
+      auto: true,
+      nextSelector: '#slider-next',
+      prevSelector: '#slider-prev',
+      nextText: 'Onward →',
+      prevText: '← Go back',
+      pager: false,
+      itemWidth : 100,
+      itemHeight : 100,
+      slideWidth: 5000,
+      easing: 'easeOutElastic',
+      speed: 2000,
+      adaptiveHeight: true,
+      autoControls: true,
+      pause: 3000,
+      slideMargin: 20
+
+    });
   });
 </script>
-
 <script type="text/javascript">
   // var config = {
   //   'screencolor': '0099FF',

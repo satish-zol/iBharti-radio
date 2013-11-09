@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  #menu false
+  menu false
+  
    config.sort_order = "id_asc"
    config.per_page = 10
 

@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:admin_songs_show_playlist]
   before_filter :song_dependent_data
   load_and_authorize_resource 
 
@@ -94,5 +94,14 @@ class SongsController < ApplicationController
       format.json { head :no_content }
     end
   end
- 
+
+  def admin_songs_show_playlist
+    debugger
+    @songs = Song.order 'id'
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @songs }
+    end
+  end
 end

@@ -1,0 +1,17 @@
+<html>
+<h2><u>Songs</u></h2>
+<div>
+<table>
+<% @song_list.each do |line| %> 	
+	<tr>
+	  <td><%= line %></b></td>
+	</tr>
+
+<%end %>
+</table>
+</div>
+</html>
+<%= link_to "Back",  admin_playlist_path%>	
+<%# @text.each do |song| %>
+	<%#= "#{song}\n" %>
+<%# end %>

@@ -1,0 +1,11 @@
+<table border = "6">
+	<div>
+	<% Dir.entries("#{Rails.root}/public/Playlist/").select {|f| !File.directory? f}.each do |item| %>
+		<tr>
+			<td><%= link_to item.split(".").first,  :controller => "admin/songs", :action => "show_songs_in_playlist", :file_name => item   %></td>
+		</tr>
+		
+	<% end %>	
+	</div>
+</table>  
+	     

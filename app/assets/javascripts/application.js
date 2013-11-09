@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.min
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jwplayer/jwplayer
 //= require_tree .

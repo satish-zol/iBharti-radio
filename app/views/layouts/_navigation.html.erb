@@ -2,8 +2,12 @@
 <ul class="nav">
   <% if user_signed_in? %>
     <li>
+      <%= link_to 'Home', root_path %> 
+    </li>
+    <li>
       <%= link_to 'Logout', destroy_user_session_path, :method=> :delete, :id => "sign_out" %> 
     </li>
+    
   <% else %>
     <li>
       <%= link_to 'Login', new_user_session_path %>  
@@ -16,6 +20,7 @@
     <li>
       <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
+
     <% if current_user.has_role? :super_admin %>
       <li>
         <%= link_to 'Admin', '/admin' %>

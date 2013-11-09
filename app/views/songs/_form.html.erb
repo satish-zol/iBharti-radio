@@ -1,4 +1,4 @@
-<%= form_for @song, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+<%= f.text_field :file, :class => 'text_field' %><%= form_for @song, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -45,20 +45,11 @@
       <% end %>
     </div>
   </div>
-  <!--div class="control-group">
-    <%#= f.label :city_id, :class => 'control-label' %>
-    <div class="controls">
-      <%# if @cities.present? %>
-        <%#= f.collection_select :city_id, @cities, :id, :name, {:include_blank => "Select Tags"}, :class => 'number_field' %>
-      <%# else %>
-        <input class="text_field", placeholder="No cities found!", readonly/>
-      <%# end %>
-    </div>
-  </div-->
+
   <div class="control-group">
     <label class='control-label'>Upload Song</label>
     <div class="controls">
-      <%= file_field_tag :file, :class => 'file_field' %>
+      <%= f.text_field :file, :class => 'text_field' %>
     </div>
   </div>
 

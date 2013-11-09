@@ -1,4 +1,4 @@
 ActiveAdmin.register Language do
-	menu false
-  
+	
+  menu false
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220133306) do
+ActiveRecord::Schema.define(:version => 20130502072113) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,9 +61,11 @@ ActiveRecord::Schema.define(:version => 20130220133306) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "city_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "url"
+    t.string   "image"
+    t.string   "mount_point"
   end
 
   add_index "colleges", ["city_id"], :name => "index_colleges_on_city_id"
@@ -73,19 +75,6 @@ ActiveRecord::Schema.define(:version => 20130220133306) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -97,6 +86,15 @@ ActiveRecord::Schema.define(:version => 20130220133306) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "schedules", :force => true do |t|
+    t.string   "program_name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "scheduled_playlist_name"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "song_uploads", :force => true do |t|
     t.string   "file"
@@ -116,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130220133306) do
     t.datetime "updated_at",  :null => false
     t.integer  "city_id"
     t.integer  "college_id"
+    t.string   "file"
   end
 
   add_index "songs", ["category_id"], :name => "index_songs_on_category_id"

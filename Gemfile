@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'rails_admin'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.11'
 gem 'pg', :group => [:production]
 #for api used rabl
 gem 'yajl-ruby'
@@ -13,9 +13,12 @@ gem 'rabl-rails'
 #for storing on amazon
 gem "fog", "~> 1.3.1"
 gem 'aws-s3', :require => 'aws/s3'
-#Rakesh Khatri-9960903132
+gem 'nokogiri'
+gem 'awesome_print'
 
-
+#For compressing and sending song to icecast 
+gem 'ruby-shout'
+gem 'formtastic'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,8 +26,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
-
+  gem 'therubyracer', :platforms => :ruby, :require => 'v8' 
+  gem 'less-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 

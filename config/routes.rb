@@ -1,5 +1,5 @@
 IbhartiRadio::Application.routes.draw do
-  
+  root :to => "main#index" 
   ActiveAdmin.routes(self)
 
     devise_for :admin_users, ActiveAdmin::Devise.config
@@ -40,14 +40,18 @@ IbhartiRadio::Application.routes.draw do
   resources :languages
 
   resources :categories
+  #resources :admin_songs_show_playlist
+
 
   match 'index' => 'main#index'
-  match 'live_station' => 'main#live_stationhahahahahahah'
+  match 'live_station' => 'main#live_station'
   match 'songs_by_lang' => 'main#songs_by_lang'
   match 'songs_by_cat' => 'main#songs_by_cat'
-
-  root :to => "main#index" 
-
+  match 'show_playlist' => 'admin/songs#show_playlist'
+  match 'create_playlist' => 'admin/songs#create_playlist'
+  match 'show_songs_in_playlist' => 'admin/songs#show_songs_in_playlist'
+  match 'shout_playlist/:id' => 'colleges#shout_playlist'
+  match 'collegeradio_play_page' => 'main#collegeradio_play_page'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

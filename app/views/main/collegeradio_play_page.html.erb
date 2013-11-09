@@ -1,0 +1,93 @@
+<!-- <div style="float: left;">
+	<%#= image_tag("/assets/back.png", :style => "height: 70px; width: 70px;") %>
+</div> -->
+
+
+<script src='/assets/jwplayer/jwplayer.js'></script>
+<style type="text/css">
+body
+{
+	height: 100%;
+	/*background: black no-repeat ;*/
+	background:#5d9ab2 url('/assets/college2.png') no-repeat ;
+	background-size: cover;
+}
+
+</style>
+<div class="clear"></div>
+<br>
+<br>
+<div>
+	<!-- <div style="height: 409px;width: 341px; border: 1px solid white; float: left">
+		<%#= image_tag("/assets/default_radio_image.jpg", :style => "height: inherit; width: inherit") %>
+		<%#= @college.image.present? ? image_tag(@college.image, :style => "height: inherit;") : image_tag("/assets/default_radio_image.jpg", :style => "height: inherit;") %>
+	</div> -->
+
+	<div class="page-header" style=" height: 388px;width: 343px; border: 1px solid white; float: left;margin-top: 0;">
+		<div style="border-bottom: 1px solid white;">
+	  <h1 style="text-align: center;font-size: 30.5px;text-shadow: 1px 1px red;"><font color="white"><%= @college.name.titleize %></font></h1>
+	  <span style="display: block;text-align: center;text-shadow: 1px 1px red"><font style="color: #FFFFFF; font-size: 20px; font-weight: bold;"><%= @college.city(@college.city_id).name if @college.city.present? %></font></span>
+	  </div>
+	  <div style="width: 340px; height: 270px;color: white;margin: 2px auto 15px;">
+		<% if @college.url.present? %>
+			<!-- <div id="college" data-value = '<%#= @college.url %>'>Loading the player...</div> -->
+			<iframe title="Flash Player" src="<%= @college.url %>"
+				
+				frameborder="0"
+				width="340"
+				height="270"
+				scrolling="no"
+				marginheight="0"
+				marginwidth="0"
+				allowtransparency="false" 
+				title="The iframe flash player display.">
+				    <p>Your browser does not support iframes. <a href="http://media.spacial.com/player/cheapeststream/index.html?sid=11593">View the content of this inline frame</a> with your browser</p>
+		    </iframe>
+		<% else %> 
+			<p style="margin: 118px 21px 10px;text-shadow: 1px 1px red">
+				Currently no program has been scheduled. Sorry for the inconvenience.
+			</p>
+		<% end %>   
+	  </div>
+	</div>
+	
+	<div class="clear"></div>
+<!-- <div style="margin-left: 26px;width: 0;"><%#= link_to "Back", root_path, :style => "color:black;font-size: 30.5px" %></div>
+</div> -->
+</br>	
+
+	
+	<!-- <div style="margin: 0 auto; width: 500px; height: 220px;border: 1px solid;color: white">
+	<%#= @college.image.present? ? image_tag(@college.image, :style => "height: inherit; width: inherit") : image_tag("/assets/default_radio_image.jpg", :style => "height: inherit; width: inherit") %> 
+
+	</div> -->
+<!-- http://media.spacial.com/player/cheapeststream/index.html?sid=11593 -->
+
+<!-- 
+ <script type="text/javascript">
+	var url = document.getElementById('college').getAttribute('data-value');
+	
+    jwplayer("college").setup({
+
+    	'streamer': 'rtmp://listen.spacial.com/api/listen/?sid=11593&method=sc',
+        // 'file': 'http://listen.spacial.com/api/listen/?sid=11593&method=sc',
+        // 'image': '/uploads/myPoster.jpg',
+        'plugins': {
+	      'audiolivestream-1': {
+	        format: 'Playing: %track',
+	        buffer: 'Buffering: %perc%',
+	        backgroundCss: true,
+	        trackCss: 'color: #fff; font-size: 11px;'
+	        
+	  		  }
+	     },
+	     'autostart': 'true',
+	     'type': 'flash',
+	     'modes': [
+		      {
+		        // type: 'mp3',
+		        src: '/assets/jwplayer/jwplayer.flash.swf'
+		      }
+		    ]
+    });
+ </script> -->

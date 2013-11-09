@@ -15,7 +15,7 @@ development:
   database: ibharti-radio_development
   pool: 5
   username: root
-  password: ror
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and

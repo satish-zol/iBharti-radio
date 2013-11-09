@@ -1,9 +1,18 @@
+
 class CollegesController < ApplicationController
-  before_filter :authenticate_user!
-  load_and_authorize_resource
+  before_filter :authenticate_user!#, :except => [:connect_to_server]
+  #load_and_authorize_resource
   # GET /colleges
   # GET /colleges.json
+
+  after_filter :mount_point_for_clg, :only =>  :shout_playlist
+
+    
+    #@mount = []
+    
+
   def index
+    #debugger
     @colleges = College.all
 
     respond_to do |format|
@@ -84,4 +93,52 @@ class CollegesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  BLOCKSIZE = 16384
+  # connect to icecast server
+  def shout_playlist
+    @clg_name = College.find(params[:id])
+    #mount_name = @clg_name.mount_point
+    #mount =  "/#{mount_name}.m3u" # doc[0].split.third unless doc[0].split.third.present? #"/#{mount_name}.m3u" # "/#{object.name.split.join.downcase}.m3u"
+    # s.charset = "UTF-8"
+    # s.port = 8022
+    # s.host = "localhost"
+    # s.user = "source"
+    # s.pass = "bpsi@123"
+    # s.format = Shout::MP3
+    #@s.description ='song classic'
+     
+     # @s.connect
+    #puts "open VLC and open network -> http://#{@s.host}:#{@s.port}"+"#{@s.mount}"
+    
+    # puts s.description
+    # filename = "#{Rails.root}/public/Playlist/qwerty.m3u"
+    # #ARGV.each do |filename|
+    #   debugger
+    #   File.open(filename) do |file|
+    #     puts "sending data from #{file}"
+    #     m = ShoutMetadata.new
+    #     m.add 'filename', filename
+    #     m.add 'title', 'title'
+    #     @s.metadata = m
+
+    #     while data = file.read(BLOCKSIZE)
+    #        @s.send data
+    #        @s.sync
+    #      end
+
+    #   end
+    #end
+
+    # s.disconnect   
+     #redirect_to :back
+     #s.connect
+     render :text => "Connect"
+  end
+
+   def get_icecast_status(connection)
+    mount_point = Nokogiri::HTML(open("http://#{request.host}:8022/status.xsl"))
+  end
+
+  
 end
