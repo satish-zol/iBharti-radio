@@ -73,7 +73,7 @@ class CollegesController < ApplicationController
 
     respond_to do |format|
       if @college.update_attributes(params[:college])
-        format.html { redirect_to @college, notice: 'College was successfully updated.' }
+        format.html { redirect_to '/colleges', notice: 'College was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
