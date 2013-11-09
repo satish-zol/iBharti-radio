@@ -1,11 +1,10 @@
 GIT
   remote: https://github.com/carrierwaveuploader/carrierwave.git
-  revision: 745db6e26f47adca3a28c93170b22216b5480f9a
-  tag: v0.7.1
+  revision: 0ef81cd4d6ad48f2fa1a3c0ce53f05ed28762eb0
+  tag: v0.5.5
   specs:
-    carrierwave (0.7.1)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
+    carrierwave (0.5.5)
+      activesupport (~> 3.0)
 
 GIT
   remote: https://github.com/plataformatec/devise.git
