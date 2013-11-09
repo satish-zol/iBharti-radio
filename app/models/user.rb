@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role_ids, :authentication_token, 
                   :confirmed_at
   # attr_accessible :title, :body
-	before_save :ensure_authentication_token
+	#before_save :ensure_authentication_token
 end
