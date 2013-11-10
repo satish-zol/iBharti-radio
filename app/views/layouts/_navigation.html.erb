@@ -1,9 +1,10 @@
 <%= link_to "CollegeRadio.com", root_path, :class => 'brand' %>
 <ul class="nav">
+  <li>
+    <%= link_to 'Home', root_path, :style => "font-size:  19.5px;" %> 
+  </li>
   <% if user_signed_in? %>
-    <li>
-      <%= link_to 'Home', root_path, :style => "font-size:  19.5px;" %> 
-    </li>
+    
     <li>
       <%= link_to 'Edit Account', edit_user_registration_path, :style => "font-size:  19.5px;" %>
     </li>
@@ -12,9 +13,9 @@
     </li>
     
   <% else %>
-    <li>
-      <%= link_to 'Login', new_user_session_path, :style => "font-size:  19.5px;" %>  
-    </li>
+    <!-- <li>
+      <%#= link_to 'Login', new_user_session_path, :style => "font-size:  19.5px;" %>  
+    </li> -->
     <!-- <li>
       <%#= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :id => "sign_in" %>
     </li> -->  
@@ -33,9 +34,9 @@
       </li>
     <% end %>
   <% else %>
-    <li>
-      <%= link_to 'Sign up', new_user_registration_path, :style => "font-size:  19.5px;" %>
-    </li>
+    <!-- <li>
+      <%#= link_to 'Sign up', new_user_registration_path, :style => "font-size:  19.5px;" %>
+    </li> -->
   <% end %>
 </ul>
 
