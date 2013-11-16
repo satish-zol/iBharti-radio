@@ -33,7 +33,7 @@ background-size: cover;
   <div style="border: 1px solid;color: white;border-radius: 15px 15px 15px 15px;margin-left: 24px;width: 610px;">
 
     <div style="padding: 10px 0 6px 20px;">
-      <a href="javascript:void(0);" onclick = "clg_radio('<%#= 'http://media.spacial.com/player/cheapeststream/index.html?sid=11593' %>');" style="border: solid 1px #CCC; width:62px; height:62px; float: left;" ><%= college.image.present? ? image_tag(college.image, :style => "height: inherit;") : image_tag("/assets/default_radio_image.jpg") %></a> 
+      <a href="javascript:void(0);" onclick = "clg_radio('<%#= 'http://media.spacial.com/player/cheapeststream/index.html?sid=11593' %>');" style="border: solid 1px #CCC; width:62px; height:62px; float: left;" ><%= college.image.present? ? image_tag(college.image, :style => "height: inherit;") : image_tag("/assets/default_radio_image.jpg", :style => "height: inherit;") %></a> 
       <div class="clear" ></div>
       <div style="display: inline-block; padding: 13px;">
         <h3 style="margin-top: -10px;font-size: 30.5px;">
