@@ -9,9 +9,12 @@
       <%= link_to 'Edit Account', edit_user_registration_path, :style => "font-size:  19.5px;" %>
     </li>
     <li>
+    <%= link_to 'Songs', songs_path, :style => "font-size:  19.5px;" %> 
+  </li>
+    <li>
       <%= link_to 'Logout', destroy_user_session_path, :method=> :delete, :id => "sign_out", :style => "font-size:  19.5px;" %> 
     </li>
-    
+      
   <% else %>
     <!-- <li>
       <%#= link_to 'Login', new_user_session_path, :style => "font-size:  19.5px;" %>  

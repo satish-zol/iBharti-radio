@@ -6,7 +6,7 @@ ActiveAdmin.register Song do
   config.sort_order = "id_asc"
   config.per_page = 10
   
-   index do 
+   index :download_links => false do 
    	column :id,  :sortable => true
    	column :name, :sortable => true
     column :created_at,  :sortable => true

@@ -6,10 +6,10 @@ ActiveAdmin.register College do
     column :name,  :sortable => true
     column :image, :sortable => true
     column :url, :sortable => true
-    column :mount_point, :sortable => true
-    column "" do ||
-      button("Go live")
-    end
+    # column :mount_point, :sortable => true
+    # column "" do ||
+    #   button("Go live")
+    # end
     default_actions
 
   end

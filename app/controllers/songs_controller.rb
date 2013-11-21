@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   before_filter :authenticate_user!, :except => [:admin_songs_show_playlist]
   before_filter :song_dependent_data
-  load_and_authorize_resource 
+  #load_and_authorize_resource 
 
   # GET /songs
   # GET /songs.json
@@ -52,7 +52,7 @@ class SongsController < ApplicationController
   def create
     
       @song = Song.create(params[:song])
-      
+   
       thread = Thread.new { @song_upload = SongUpload.create(:song_id => @song.id, :file => params[:file])   }
     respond_to do |format|
       if @song && thread

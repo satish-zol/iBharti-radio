@@ -1,4 +1,4 @@
-<%= f.text_field :file, :class => 'text_field' %><%= form_for @song, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+<%= form_for @song, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -45,11 +45,11 @@
       <% end %>
     </div>
   </div>
-
+  <%#= f.text_field :file, :class => 'text_field' %>
   <div class="control-group">
     <label class='control-label'>Upload Song</label>
     <div class="controls">
-      <%= f.text_field :file, :class => 'text_field' %>
+      <%= f.file_field :file, :class => 'text_field' %>
     </div>
   </div>
 

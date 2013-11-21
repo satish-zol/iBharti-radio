@@ -4,6 +4,7 @@
 </div>
 
 <dl class="dl-horizontal">
+<%# debugger %>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @song.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
@@ -13,7 +14,7 @@
   <dt><strong><%= model_class.human_attribute_name(:tag_id) %>:</strong></dt>
   <dd><%= @song.tag.name %></dd>
     <dt><strong><%= model_class.human_attribute_name(:city_id) %>:</strong></dt>
-  <dd><%= @song.city.name %></dd>
+  <dd><%= @song.city.name if @song.city.present? %></dd>
 </dl>
 
 <div class="form-actions">

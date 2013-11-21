@@ -25,10 +25,10 @@
       <th><%= model_class.human_attribute_name(:category_id) %></th>
       <th><%= model_class.human_attribute_name(:language_id) %></th>
       <th><%= model_class.human_attribute_name(:tag_id) %></th>
-      <th><%= model_class.human_attribute_name(:file) %></th>
+      <th><%#= model_class.human_attribute_name(:file) %></th>
       <th><%= model_class.human_attribute_name(:listen) %></th>
       <th><%= model_class.human_attribute_name(:college) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%#= model_class.human_attribute_name(:city) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -41,7 +41,7 @@
         <td><%= song.category.name %></td>
         <td><%= song.language.name %></td>
         <td><%= song.tag.name %></td>
-        <td><%= File.basename(song.song_upload.file.path) %></td>
+        <td><%#= File.basename(song.song_upload.file.path) %></td>
         <td><%= link_to "Audio", song.song_upload.file.url, :class => "html5" %></td> 
         <td><%= song.college.name if song.college.present? %></td>  
         <td><%= song.college.city.name if song.college.present? %></td>
